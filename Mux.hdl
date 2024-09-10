@@ -1,0 +1,17 @@
+/**
+ * Multiplexor gate: 
+ */
+
+CHIP Mux {
+    IN a, b, sel;
+    OUT out;
+
+    PARTS:
+    // Put your code here:
+	NOT(a=sel, out=nsel);
+	
+	AND(a=a, b=nsel, out=and1);
+	AND(a=sel, b=b, out=and2);
+	
+	OR(a=and1, b=and2, out=out);
+}

@@ -1,0 +1,14 @@
+/**
+ * OR gate: 
+ */
+
+CHIP OR {
+    IN a, b;
+    OUT out;
+
+    PARTS:
+    // Put your code here:
+	NOT(a=a, out=na);
+	NOT(a=b, out=nb);
+	Nand(a=na, b=nb, out=out);
+}
