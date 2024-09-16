@@ -7,6 +7,5 @@ CHIP NOT {
     OUT out;
 
     PARTS:
-    // Put your code here:
 	Nand(a=a, b=a, out=out);
 }

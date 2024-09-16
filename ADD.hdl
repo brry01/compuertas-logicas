@@ -1,0 +1,52 @@
+/**
+ * ADD: Sumador Completo
+ */
+
+CHIP ADD {
+    IN a, b, c;
+    OUT sum, carry;
+
+    PARTS:
+    NOT(a=a, out=nota);
+    NOT(a=b, out=notb);
+    NOT(a=c, out=notc);
+
+    // EQ 1
+    AND(a=notc, b=nota, out=eq11);
+    AND(a=eq11, b=b, out=eq1);
+
+    // EQ 2
+    AND(a=notc, b=a, out=eq21);
+    AND(a=eq21, b=notb, out=eq2);
+
+    // EQ 3
+    AND(a=c, b=nota, out=eq31);
+    AND(a=eq31, b=notb, out=eq3);
+
+    // EQ 4
+    AND(a=c, b=a, out=eq41);
+    AND(a=eq41, b=b, out=eq4);
+
+    // RESULTADO
+    OR(a=eq1, b=eq2, out=sum1);
+    OR(a=sum1, b=eq3, out=sum2);
+    OR(a=sum2, b=eq4, out=sum);
+
+    // EQ 5
+    AND(a=notc, b=a, out=eq51);
+    AND(a=eq51, b=b, out=eq5);
+
+    // EQ 6
+    AND(a=c, b=nota, out=eq61);
+    AND(a=eq61, b=b, out=eq6);
+
+    // EQ 7
+    AND(a=c, b=a, out=eq71);
+    AND(a=eq71, b=notb, out=eq7);
+
+    // CARRY
+    OR(a=eq5, b=eq6, out=carry1);
+    OR(a=carry1, b=eq7, out=carry2);
+    OR(a=carry2, b=eq4, out=carry);
+
+}

@@ -7,8 +7,8 @@ CHIP OR {
     OUT out;
 
     PARTS:
-    // Put your code here:
 	NOT(a=a, out=na);
 	NOT(a=b, out=nb);
+	
 	Nand(a=na, b=nb, out=out);
 }

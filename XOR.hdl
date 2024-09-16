@@ -7,11 +7,11 @@ CHIP XOR {
     OUT out;
 
     PARTS:
-    // Put your code here:
-	NOT(a=sel, out=notsel);
+	NOT(a=a, out=na);
+	AND(a=na, b=b, out=and1);
 	
-	AND(a=a, b=notsel, out=and1);
-	AND(a=b, b=sel, out=and1);
+	NOT(a=b, out=nb);
+	AND(a=a, b=nb, out=and2);
 	
 	OR(a=and1, b=and2, out=out);
 }

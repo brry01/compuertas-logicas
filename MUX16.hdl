@@ -1,0 +1,14 @@
+/**
+ * Multiplexor gate 16 bits: 
+ */
+
+CHIP MUX16 {
+    IN a, b, c, d, e, f, g, h, i, j, k, l, m, n, o, p, sel0, sel1, sel2, sel3;
+    OUT out;
+
+    PARTS:
+    MUX8(a=a, b=b, c=c, d=d, e=e, f=f, g=g, h=h, sel0=sel0, sel1=sel1, sel2=sel2, out=f1);
+    MUX8(a=i, b=j, c=k, d=l, e=m, f=n, g=o, h=p, sel0=sel0, sel1=sel1, sel2=sel2, out=f2);
+	
+    MUX(a=f1, b=f2, sel=sel3, out=out);
+}
