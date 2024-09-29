@@ -1,5 +1,5 @@
 /**
- * Demultiplexor gate:
+ * Demultiplexor
  * {a, b} = {in, 0} if sel == 0
  *          {in, 1} if sel == 1
  */
@@ -9,8 +9,8 @@ CHIP DEMUX {
     OUT a, b;
 
     PARTS:
-    NOT(a=sel, out=nsel);
+    NOT(in=sel, out=notsel);
 
-    AND(a=in, b=nsel, out=a);
-    AND(a=in, b=sel, out=b);
+    AND(a=in, b=notsel, out=a);
+    AND(a=sel, b=in, out=b);
 }

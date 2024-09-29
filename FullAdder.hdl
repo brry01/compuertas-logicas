@@ -1,0 +1,13 @@
+/**
+ * FullAdder: Sumador Completo
+ */
+
+CHIP FullAdder {
+    IN a, b, c;
+    OUT sum, carry;
+
+    PARTS:
+    HalfAdder(a=a, b=b, sum=sumab, carry=carryab);
+    HalfAdder(a=sumab, b=c, sum=sum, carry=temp);
+    OR(a=temp, b=carryab, out=carry);
+}

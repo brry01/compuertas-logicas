@@ -1,0 +1,17 @@
+/**
+ * OR de 8 entradas
+ */
+
+CHIP OR8WAY {
+    IN in[8];
+    OUT out;
+
+    PARTS:
+    OR(a=in[0], b=in[1], out=o1);
+    OR(a=o1, b=in[2], out=o2);
+    OR(a=o2, b=in[3], out=o3);
+    OR(a=o3, b=in[4], out=o4);
+    OR(a=o4, b=in[5], out=o5);
+    OR(a=o5, b=in[6], out=o6);
+    OR(a=o6, b=in[7], out=out);
+}

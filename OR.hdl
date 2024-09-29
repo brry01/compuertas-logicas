@@ -1,5 +1,5 @@
 /**
- * OR gate: 
+ * OR
  */
 
 CHIP OR {
@@ -7,8 +7,7 @@ CHIP OR {
     OUT out;
 
     PARTS:
-	NOT(a=a, out=na);
-	NOT(a=b, out=nb);
-	
-	Nand(a=na, b=nb, out=out);
+    NOT(in=a, out=nota);
+    NOT(in=b, out=notb);
+    Nand(a=nota, b=notb, out=out);
 }

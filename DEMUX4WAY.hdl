@@ -1,0 +1,13 @@
+/**
+ * Demultiplexor de 4 entradas
+ */
+
+CHIP DEMUX4WAY {
+    IN in, sel[2];
+    OUT a, b, c, d;
+
+    PARTS:
+    DEMUX(in=in, sel=sel[1], a=ab, b=cd);
+    DEMUX(in=ab, sel=sel[0], a=a, b=b);
+    DEMUX(in=cd, sel=sel[0], a=c, b=d);
+}

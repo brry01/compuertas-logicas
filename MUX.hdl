@@ -1,5 +1,5 @@
 /**
- * Multiplexor gate: 
+ * Multiplexor gate
  */
 
 CHIP MUX {
@@ -7,10 +7,10 @@ CHIP MUX {
     OUT out;
 
     PARTS:
-	NOT(a=sel, out=nsel);
+    NOT(in=a, out=notsel);
 	
-	AND(a=a, b=nsel, out=f1);
-	AND(a=b, b=sel, out=f2);
+    AND(a=a, b=notsel, out=aAndnotsel);
+    AND(a=sel, b=b, out=bAndsel);
 	
-	OR(a=f1, b=f2, out=out);
+    OR(a=aAndnotsel, b=bAndsel, out=out);
 }
