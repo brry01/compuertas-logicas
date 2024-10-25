@@ -3,10 +3,10 @@
  */
 
 CHIP ALU {
-    IN x[16], y[16], zx, nx, zy, ny, f, no; 
-    OUT out[16], zr, ng; 
+   IN x[16], y[16], zx, nx, zy, ny, f, no; 
+   OUT out[16], zr, ng; 
 
-    PARTS:
+   PARTS:
 
    // zx, nx
    MUX16(a=x, b=false, sel=zx, out=zerox);
