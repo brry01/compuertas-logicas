@@ -1,0 +1,13 @@
+/**
+ * OR
+ */
+
+CHIP OR {
+    IN a, b;
+    OUT out;
+
+    PARTS:
+    NOT(in=a, out=nota);
+    NOT(in=b, out=notb);
+    Nand(a=nota, b=notb, out=out);
+}

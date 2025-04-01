@@ -1,0 +1,13 @@
+/**
+ * Registro de 1 bit
+ */
+
+CHIP BIT {
+    IN in, load;
+    OUT out;
+
+    PARTS:
+	DFF(in=outMux, out=outDFF, out=out); // Flip-flop
+	
+    MUX(a=outDFF, b=in, sel=load, out=outMux); // Multiplexor
+}

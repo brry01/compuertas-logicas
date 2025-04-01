@@ -1,0 +1,20 @@
+/**
+ * Números negativos con complemento a 2 
+ */
+
+CHIP COMPLEMENTO2 {
+    IN in[4];   // 4 bits de entrada
+    OUT out[4];
+
+    PARTS:
+    NOT(in=in[0], out=not0);
+    NOT(in=in[1], out=not1);
+    NOT(in=in[2], out=not2);
+    NOT(in=in[3], out=not3);
+
+    FullAdder(a=not0, b=false, c=true, sum=out[0], carry=c1);
+    FullAdder(a=not1, b=false, c=c1, sum=out[1], carry=c2);
+    FullAdder(a=not2, b=false, c=c2, sum=out[2], carry=c3);
+    FullAdder(a=not3, b=false, c=c3, sum=out[3], carry=carry);
+
+}

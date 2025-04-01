@@ -1,0 +1,14 @@
+/**
+ * Multiplexor gate 8 bits: 
+ */
+
+CHIP MUX8 {
+    IN a, b, c, d, e, f, g, h, sel0, sel1, sel2;
+    OUT out;
+
+    PARTS:
+	MUX4(a=a, b=b, c=c, d=d, sel0=sel0, sel1=sel1, out=f1);
+	MUX4(a=e, b=f, c=g, d=h, sel0=sel0, sel1=sel1, out=f2);
+	
+	MUX(a=f1, b=f2, sel=sel2, out=out);
+}

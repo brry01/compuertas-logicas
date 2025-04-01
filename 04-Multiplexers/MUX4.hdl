@@ -1,0 +1,14 @@
+/**
+ * Multiplexor gate 4 bits: 
+ */
+
+CHIP MUX4 {
+    IN a, b, c, d, sel0, sel1;
+    OUT out;
+
+    PARTS:
+	MUX(a=a, b=b, sel=sel1, out=f1);
+	MUX(a=c, b=d, sel=sel1, out=f2);
+	
+	MUX(a=f1, b=f2, sel=sel0, out=out);
+}
